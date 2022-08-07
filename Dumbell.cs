@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace csharp_oop
 {
-    internal class Dumbell
+    public class Dumbell
     {
         public int Weight { get; set; }
         public string Unit = "kg";
