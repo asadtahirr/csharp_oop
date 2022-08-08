@@ -5,6 +5,8 @@ namespace csharp_oop
     {
         public string OuterColor { get; set; }
         public string InnerColor { get; set; }
+        public  List<Employee> Employees  { get; set; }
+        public List<Customer> Customers { get; set; }
 
         public SecurityDoor SecureEntrance { get; set; }
         public LeisureArea LeisureSpot { get; set; }
@@ -45,6 +47,10 @@ namespace csharp_oop
             Washroom femaleWashroom = new Washroom(6, "Red","FemaleWashroom",8);
             
             Washrooms = new List<Washroom>() { mensWashroom };
+
+            Employees = new List<Employee>();
+           
+            Customers = new List<Customer>();
 
             Washrooms.Add(femaleWashroom);
 
