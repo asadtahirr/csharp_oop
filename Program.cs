@@ -2,22 +2,53 @@
 using csharp_oop.Models;
 using csharp_oop.Models.Assets;
 using csharp_oop.Models.Assets.Equipments;
+using Microsoft.EntityFrameworkCore;
 
 ApplicationDbContext dbContext = new ApplicationDbContext();
 
-Console.WriteLine("Welcome to the gym console. What do you want to do?");
+string activeOperation = null;
 
-Console.WriteLine("1. Create a new gym");
+async Task PrintMainMenu()
+{
+    Console.WriteLine("Welcome to the gym console. What do you want to do?");
 
-Console.WriteLine("2. View gym details");
+    Console.WriteLine("1. Create a new gym");
 
-Console.WriteLine("3. Update a gym");
+    Console.WriteLine("2. View gym details");
 
-string selectedOption = Console.ReadLine();
+    Console.WriteLine("3. Update a gym");
 
-Console.WriteLine($"You have selected option {selectedOption}");
+    string selectedOption = Console.ReadLine();
 
-if (selectedOption == "1")
+    Console.WriteLine($"You have selected option {selectedOption}");
+
+    if (selectedOption == "1")
+    {
+        await CreateNewGym();
+    }
+    else if (selectedOption == "2")
+    {
+        List<BuildingViewModel> buildings = await dbContext
+                                    .Buildings
+                                    .Select(b => new BuildingViewModel()
+                                        {
+                                            Name = b.Name,
+                                            Id = b.Id
+                                        }
+                                    ).ToListAsync();
+
+        for (int i = 1; i <= buildings.Count; i++)
+        {
+            Console.WriteLine($"{i}. {buildings[i - 1].Name}");
+        }
+    }
+    else if (selectedOption == "3")
+    {
+        // do the other thing
+    }
+}
+
+async Task CreateNewGym()
 {
     Console.WriteLine("Please enter outer coler");
 
@@ -38,7 +69,7 @@ if (selectedOption == "1")
     decimal price = Convert.ToDecimal(userInputForPrice);
 
     Console.WriteLine("Please enter the number of rooms you need");
-            
+
     string userInputForRooms = Console.ReadLine();
 
     int numberOfRooms = Convert.ToInt32(userInputForRooms);
@@ -71,7 +102,7 @@ if (selectedOption == "1")
         newGym.Washrooms.Add(washrooms);
     }
 
-    for(int i = 0; i < numberOfEmployees; i++)
+    for (int i = 0; i < numberOfEmployees; i++)
     {
         Employee employees = new Employee("Manager", "day", "Muhammad", "Asad");
 
@@ -84,11 +115,8 @@ if (selectedOption == "1")
 
     Console.WriteLine("Done");
 }
-else if (selectedOption == "2")
+
+while (true)
 {
-    // do the other thing
-}
-else if (selectedOption == "3")
-{
-    // do the other thing
+    await PrintMainMenu();
 }

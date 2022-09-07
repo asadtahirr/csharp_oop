@@ -21,6 +21,7 @@ namespace csharp_oop.Models.Assets
          // public LegStretch RoomOfLegStretch { get; set; }
          public virtual List<Room> Rooms { get; set; }
          public virtual List<Washroom> Washrooms { get; set; }
+        
 
         public Building(
             string outerColor,
