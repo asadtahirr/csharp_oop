@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_oop
+namespace csharp_oop.Models.Assets.Equipments
 {
     internal class Staircase : GymAsset
     {
         public string Equipment1 { get; set; }
         public string Equipment2 { get; set; }
 
-        public Staircase(string nameOfAsset, decimal valueOfAsset) : base(nameOfAsset, valueOfAsset)
+        public Staircase(string nameOfAsset, decimal valueOfAsset, string statusOfAsset) : base(nameOfAsset, valueOfAsset, statusOfAsset)
         {
             Equipment1 = "Stairs";
             Equipment2 = "Casing";

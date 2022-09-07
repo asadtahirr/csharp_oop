@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace csharp_oop 
+namespace csharp_oop.Models
 {
     public enum Sexes
     {
@@ -29,35 +29,36 @@ namespace csharp_oop
         public string PaymentType { get; set; }
         public string MemberShipType { get; set; }
         public string Sex { get; set; }
-        
-        public Customer(DateTime? lastVisitInGym,string customerSex,string typeOfMembership, string userFirstName,bool isCustomerDebitPayment,string userLastName) : base(userFirstName, userLastName)
+
+        public Customer(DateTime? lastVisitInGym, string customerSex, string typeOfMembership, string userFirstName, bool isCustomerDebitPayment, string userLastName) : base(userFirstName, userLastName)
         {
             LastVisit = lastVisitInGym;
             PaymentType = isCustomerDebitPayment ? PaymentTypes.Debit.ToString() : PaymentTypes.Credit.ToString();
-            
-            if(customerSex == "Male")
+
+            if (customerSex == "Male")
             {
                 Sex = Sexes.Male.ToString();
             }
-            else if(customerSex == "Female")
+            else if (customerSex == "Female")
             {
                 Sex = Sexes.Female.ToString();
 
             }
-            else if(customerSex == "Other")
+            else if (customerSex == "Other")
             {
-                Sex = Sexes.Other.ToString(); 
+                Sex = Sexes.Other.ToString();
             }
             else
             {
                 throw new Exception("Invalid sex");
             }
-          
-            
-            if(typeOfMembership == "Yearly")
+
+
+            if (typeOfMembership == "Yearly")
             {
                 MemberShipType = MemberShipTypes.Yearly.ToString();
-            }else if(typeOfMembership == "Monthly")
+            }
+            else if (typeOfMembership == "Monthly")
 
             {
                 MemberShipType = MemberShipTypes.Monthly.ToString();
@@ -70,8 +71,8 @@ namespace csharp_oop
             {
                 throw new Exception("Invalid membership type");
             }
-            
-            
+
+
         }
     }
 }
