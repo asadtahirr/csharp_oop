@@ -4,13 +4,15 @@ namespace csharp_oop.Models.Assets.Equipments
 {
     public class Washroom : GymAsset
     {
-        public int NumberOfToilets { get; set; }
-        public string ThemeofWashroom { get; set; }
+        public int Toilets { get; set; }
+        public string Theme { get; set; }
 
-        public Washroom(int numofToilets, string themeofWashroom, string nameOfAsset, decimal valueOfAsset, string statusOfAsset) : base(nameOfAsset, valueOfAsset, statusOfAsset)
+        public virtual Building Building { get; set; }
+
+        public Washroom(int toilets, string theme, string name, decimal value, string status) : base(name, value, status)
         {
-            NumberOfToilets = numofToilets;
-            ThemeofWashroom = themeofWashroom;
+            Toilets = toilets;
+            Theme = theme;
         }
 
     }

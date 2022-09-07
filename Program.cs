@@ -70,12 +70,12 @@ if (selectedOption == "1")
         newGym.Rooms.Add(room);
     }
 
-    //for (int i = 0; i < numberOfWashrooms; i++)
-    //{
-    //    Washroom washrooms = new Washroom(4,"White","Personal Washroom",101, "1");
+    for (int i = 0; i < numberOfWashrooms; i++)
+    {
+        Washroom washrooms = new Washroom(4, "White", "Personal Washroom", 101, "1");
 
-    //    newGym.Washrooms.Add(washrooms);
-    //}
+        newGym.Washrooms.Add(washrooms);
+    }
 
     //for(int i = 0; i < numberOfEmployees; i++)
     //{

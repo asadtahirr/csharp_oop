@@ -19,10 +19,8 @@ namespace csharp_oop.Models.Assets
          // public PunchingBag TypeBag { get; set; }
 
          // public LegStretch RoomOfLegStretch { get; set; }
-
-
-         // public List<Washroom> Washrooms { get; set; }
          public virtual List<Room> Rooms { get; set; }
+         public virtual List<Washroom> Washrooms { get; set; }
 
         public Building(
             string outerColor,
@@ -36,13 +34,14 @@ namespace csharp_oop.Models.Assets
 
             InnerColor = innerColor;
 
-            // Washrooms = new List<Washroom>();
+            Rooms = new List<Room>();
+
+            Washrooms = new List<Washroom>();
 
             // Employees = new List<Employee>();
 
             // Customers = new List<Customer>();
 
-            Rooms = new List<Room>();
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using csharp_oop.Models.Assets;
+using csharp_oop.Models.Assets.Equipments;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace csharp_oop.Data
 {
@@ -12,6 +8,7 @@ namespace csharp_oop.Data
     {
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Washroom> Washrooms { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
