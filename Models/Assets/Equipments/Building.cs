@@ -8,7 +8,7 @@ namespace csharp_oop.Models.Assets
         public string OuterColor { get; set; }
         public string InnerColor { get; set; }
         
-        // public List<Employee> Employees { get; set; }
+        public virtual List<Employee> Employees { get; set; }
         // public List<Customer> Customers { get; set; }
 
          // public SecurityDoor SecureEntrance { get; set; }
@@ -38,7 +38,7 @@ namespace csharp_oop.Models.Assets
 
             Washrooms = new List<Washroom>();
 
-            // Employees = new List<Employee>();
+            Employees = new List<Employee>();
 
             // Customers = new List<Customer>();
 

@@ -12,11 +12,11 @@ namespace csharp_oop.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public User(string userFirstName, string userLastName)
+        public User(string firstName, string lastName)
         {
             Id = Guid.NewGuid().ToString();
-            FirstName = userFirstName;
-            LastName = userLastName;
+            FirstName = firstName;
+            LastName = lastName;
         }
     }
 }

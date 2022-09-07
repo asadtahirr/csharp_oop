@@ -77,12 +77,12 @@ if (selectedOption == "1")
         newGym.Washrooms.Add(washrooms);
     }
 
-    //for(int i = 0; i < numberOfEmployees; i++)
-    //{
-    //    Employee employees = new Employee("Manager",true,"Muhammad","Asad");
+    for(int i = 0; i < numberOfEmployees; i++)
+    {
+        Employee employees = new Employee("Manager", "day", "Muhammad", "Asad");
 
-    //    newGym.Employees.Add(employees);
-    //}
+        newGym.Employees.Add(employees);
+    }
 
     //for(int j = 0; j < numberOfCustomers; j++)
     //{

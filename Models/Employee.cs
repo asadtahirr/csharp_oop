@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csharp_oop.Models.Assets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,13 @@ namespace csharp_oop.Models
     {
         public string Position { get; set; }
         public string Shift { get; set; }
+        public virtual Building Building { get; set; }
 
-        public Employee(string positionOfEmployee, bool isWorkingDayShift, string userFirstName, string userLastName) : base(userFirstName, userLastName)
+        public Employee(string position, string shift, string firstName, string lastName) : base(firstName, lastName)
         {
 
-            Position = positionOfEmployee;
-            Shift = isWorkingDayShift ? Shifts.Day.ToString() : Shifts.Night.ToString();
+            Position = position;
+            Shift = shift == "day" ? Shifts.Day.ToString() : Shifts.Night.ToString();
         }
     }
 }
