@@ -35,6 +35,8 @@ if (selectedOption == "1")
 
     string userInputForPrice = Console.ReadLine();
 
+    decimal price = Convert.ToDecimal(userInputForPrice);
+
     Console.WriteLine("Please enter the number of rooms you need");
             
     string userInputForRooms = Console.ReadLine();
@@ -52,14 +54,6 @@ if (selectedOption == "1")
     string userInputForWashrooms = Console.ReadLine();
 
     int numberOfWashrooms = Convert.ToInt32(userInputForWashrooms);
-
-    Console.WriteLine("Please enter the number of customers you need");
-
-    string userInputForCustomers = Console.ReadLine();
-
-    int numberOfCustomers = Convert.ToInt32(userInputForCustomers);
-
-    decimal price = Convert.ToDecimal(userInputForPrice);
 
     Building newGym = new Building(outerColor, innercolor, name, price, "0");
 
@@ -83,13 +77,6 @@ if (selectedOption == "1")
 
         newGym.Employees.Add(employees);
     }
-
-    //for(int j = 0; j < numberOfCustomers; j++)
-    //{
-    //    Customer customers = new Customer(DateTime.Now, "Male","Yearly","Hamza",true,"Atif");
-
-    //    newGym.Customers.Add(customers);
-    //}
 
     dbContext.Buildings.Add(newGym);
 

@@ -27,24 +27,24 @@ namespace csharp_oop.Models
     {
         public DateTime? LastVisit { get; set; }
         public string PaymentType { get; set; }
-        public string MemberShipType { get; set; }
+        public string MembershipType { get; set; }
         public string Sex { get; set; }
 
-        public Customer(DateTime? lastVisitInGym, string customerSex, string typeOfMembership, string userFirstName, bool isCustomerDebitPayment, string userLastName) : base(userFirstName, userLastName)
+        public Customer(DateTime? lastVisit, string sex, string membershipType, string firstName, string paymentType, string lastName) : base(firstName, lastName)
         {
-            LastVisit = lastVisitInGym;
-            PaymentType = isCustomerDebitPayment ? PaymentTypes.Debit.ToString() : PaymentTypes.Credit.ToString();
+            LastVisit = lastVisit;
+            PaymentType = paymentType == "debit" ? PaymentTypes.Debit.ToString() : PaymentTypes.Credit.ToString();
 
-            if (customerSex == "Male")
+            if (sex == "male")
             {
                 Sex = Sexes.Male.ToString();
             }
-            else if (customerSex == "Female")
+            else if (sex == "female")
             {
                 Sex = Sexes.Female.ToString();
 
             }
-            else if (customerSex == "Other")
+            else if (sex == "other")
             {
                 Sex = Sexes.Other.ToString();
             }
@@ -54,18 +54,18 @@ namespace csharp_oop.Models
             }
 
 
-            if (typeOfMembership == "Yearly")
+            if (membershipType == "Yearly")
             {
-                MemberShipType = MemberShipTypes.Yearly.ToString();
+                MembershipType = MemberShipTypes.Yearly.ToString();
             }
-            else if (typeOfMembership == "Monthly")
+            else if (membershipType == "Monthly")
 
             {
-                MemberShipType = MemberShipTypes.Monthly.ToString();
+                MembershipType = MemberShipTypes.Monthly.ToString();
             }
-            else if (typeOfMembership == "BiWeekly")
+            else if (membershipType == "BiWeekly")
             {
-                MemberShipType = MemberShipTypes.Biweekly.ToString();
+                MembershipType = MemberShipTypes.Biweekly.ToString();
             }
             else
             {

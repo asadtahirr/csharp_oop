@@ -10,7 +10,7 @@ namespace csharp_oop.Data
         public DbSet<Building> Buildings { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Washroom> Washrooms { get; set; }
-
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
