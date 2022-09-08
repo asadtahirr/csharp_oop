@@ -30,6 +30,7 @@ async Task PrintMainMenu()
     {
         List<BuildingViewModel> buildings = await dbContext
                                     .Buildings
+                                    .OrderBy(b => b.CreatedAt)
                                     .Select(b => new BuildingViewModel()
                                         {
                                             Name = b.Name,
@@ -37,10 +38,58 @@ async Task PrintMainMenu()
                                         }
                                     ).ToListAsync();
 
+
         for (int i = 1; i <= buildings.Count; i++)
         {
             Console.WriteLine($"{i}. {buildings[i - 1].Name}");
         }
+        
+        Console.WriteLine("Select the gym you want to update");
+        
+        string selectedGym = Console.ReadLine();
+
+        int selectedGymByUser = Convert.ToInt32(selectedGym);
+
+        string selectedGymId = buildings[selectedGymByUser - 1].Id;
+        
+        Building gymDetails = await dbContext.Buildings
+                                                .Where(
+                                                    b => b.Id == selectedGymId
+                                                )
+                                                .Include(
+                                                    b => b.Employees
+                                                )
+                                                .Include(
+                                                    b => b.Washrooms
+                                                )
+                                                .Include(
+                                                    b => b.Rooms
+                                                )
+                                                .Include(
+                                                    b => b.Customers
+                                                )
+                                                .FirstOrDefaultAsync();
+
+
+        Console.WriteLine($"Id: {gymDetails.Id}");
+
+        Console.WriteLine($"Name: {gymDetails.Name}");
+
+        Console.WriteLine($"Value: {gymDetails.Value}");
+        
+        Console.WriteLine($"Status: {gymDetails.Status}");
+
+        Console.WriteLine($"OuterColor: {gymDetails.OuterColor}");
+
+        Console.WriteLine($"InnerColor: {gymDetails.InnerColor}");
+
+        Console.WriteLine($"Rooms: {gymDetails.Rooms.Count}");
+
+        Console.WriteLine($"Washrooms: {gymDetails.Washrooms.Count}");
+
+        Console.WriteLine($"Customers: {gymDetails.Customers.Count}");
+
+        Console.WriteLine($"Employees: {gymDetails.Employees.Count}");
     }
     else if (selectedOption == "3")
     {

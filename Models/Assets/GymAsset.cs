@@ -25,9 +25,9 @@ namespace csharp_oop.Models.Assets
             Name = name;
             Value = value;
 
-            if (status == "0")
+            if (status == "functional")
                 Status = Statuses.Functional.ToString().ToLower();
-            else if (status == "1")
+            else if (status == "damaged")
                 Status = Statuses.Damaged.ToString().ToLower();
             else
                 Status = null;

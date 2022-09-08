@@ -21,6 +21,9 @@ namespace csharp_oop.Models.Assets
          // public LegStretch RoomOfLegStretch { get; set; }
          public virtual List<Room> Rooms { get; set; }
          public virtual List<Washroom> Washrooms { get; set; }
+         public DateTime CreatedAt { get; set; }
+         public DateTime? UpdatedAt { get; set; }
+
         
 
         public Building(
@@ -32,6 +35,8 @@ namespace csharp_oop.Models.Assets
         ) : base(name, value, status)
         {
             OuterColor = outerColor;
+           
+            CreatedAt = DateTime.Now;
 
             InnerColor = innerColor;
 
